@@ -44,6 +44,7 @@ class ParthenonExportExtension extends Extension
 
         $this->handleCommon($config, $container);
         $this->handleExport($config, $container);
+        $this->handleNotification($config, $container);
     }
 
     public function handleCommon(array $config, ContainerBuilder $container)
@@ -58,5 +59,12 @@ class ParthenonExportExtension extends Extension
         $export = new Export();
         $export->handleDefaultParameters($container);
         $export->handleConfiguration($config, $container);
+    }
+
+    public function handleNotification(array $config, ContainerBuilder $container)
+    {
+        $notification = new Notification();
+        $notification->handleDefaultParameters($container);
+        $notification->handleConfiguration($config, $container);
     }
 }

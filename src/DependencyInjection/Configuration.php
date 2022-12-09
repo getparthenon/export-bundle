@@ -16,6 +16,7 @@ namespace Parthenon\DependencyInjection;
 
 use Parthenon\DependencyInjection\Modules\Common;
 use Parthenon\DependencyInjection\Modules\Export;
+use Parthenon\DependencyInjection\Modules\Notification;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -34,6 +35,9 @@ class Configuration implements ConfigurationInterface
 
         $export = new Export();
         $export->addConfig($children);
+
+        $notifcation = new Notification();
+        $notifcation->addConfig($children);
 
         $children->end();
 
