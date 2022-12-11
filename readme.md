@@ -14,6 +14,39 @@ It allows exports by default in the formats `csv` and `xlsx`. With the ability t
 
 This bundle allows you to export data via 3 methods:
 
+## Getting Started
+
+To add to your project
+
+`composer require parthenon/export-bundle`
+
+## Example Usage
+
+```php
+namespace App\Controller;
+
+use Parthenon\Athena\Export\DefaultDataProvider;
+use Parthenon\Export\Engine\EngineInterface;
+use Parthenon\Export\Exporter\ExporterManagerInterface;
+use Parthenon\Export\Exporter\ExporterManagerInterface;
+use Parthenon\Export\Response\ResponseConverterInterface;
+
+class ExportController
+{
+    public function export(Request $request, EngineInterface $engine, ResponseConverterInterface $responseConverter)
+    {
+        $exportName = $request->get("name");
+        $exportFormat = $request->get("format");
+
+        $exportRequest = new ExportRequest($exportName, $exportFormat, DefaultDataProvider::class, $parameters);
+
+        $response = $engine->process($exportRequest);
+
+        return $responseConverter->convert($response);
+    }
+}
+```
+
 ### Direct Download 
 
 This is where the export is generated within the HTTP request and a download file is provided.
