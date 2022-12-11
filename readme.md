@@ -26,3 +26,35 @@ This is where the export is generated within the background via Symfony Messenge
 
 This is where the export is generated within the background via Symfony Messenger. Once the export is generated it's emailed to the requesting user.
 
+## Configuration Options
+
+When doing exports using background processinging you need to configure a few things.
+
+### Background Download
+
+The file uploading part of the background download engine is handled by the common module of Parthenon. The full documentation can be found [here](https://getparthenon.com/docs/next/common/upload/).
+
+If you want to save the file to a local folder the configuration below can help.
+
+```yaml
+parthenon:
+  common:
+    uploader:
+      default:
+        provider: local
+        naming_strategy: time_random
+        local:  
+          path: "%kernel.project_dir%/public/uploads"
+```
+
+### Background Email
+
+The email sending part of this engine is handled by the Notification module of Parthenon. The full documentation can be found at [here](https://getparthenon.com/docs/next/notification/email)
+
+If you're already using Symfony Mailer and just want that to be used then the configuration below is what is needed.
+
+```yaml
+parthenon:
+  notification:
+    type: symfony
+```
