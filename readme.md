@@ -20,6 +20,26 @@ To add to your project
 
 `composer require parthenon/export-bundle`
 
+## Support
+
+Support is provided via GitHub, Slack, and Email.
+
+If you have a commercial license you will be able to list the GitHub accounts that you want to link to the license. This
+means when an issue is created by an account linked to a commercial license they will get priority support. All other
+issues will be given best effort support.
+
+* Github: You can make an issue on [getparthenon/monorepo](https://github.com/getparthenon/monorepo/issues/new/choose)
+* Email: support@getparthenon.com
+* Slack: [Click here](https://join.slack.com/t/parthenonsupport/shared_invite/zt-1kmmuvul0-Ai1Sp6j3SzlF955Z~CD~~Q) to signup
+
+Issues we will provide support and fixes for:
+
+* Defects/Bugs
+* Performance issues
+* Documentation fixes/improvements
+* Lack of flexibility
+* Feature requests
+
 ## Example Usage
 
 ```php
@@ -90,20 +110,6 @@ parthenon:
   notification:
     type: symfony
 ```
-
-## Support
-
-Support is provided via GitHub, Slack, and Email.
-
-If you have a commercial license you will be able to list the GitHub accounts that you want to link to the license. This
-means when an issue is created by an account linked to a commercial license they will get priority support. All other
-issues will be given best effort support.
-
-* Github: You can make an issue on [getparthenon/monorepo](https://github.com/getparthenon/monorepo/issues/new/choose)
-* Email: support@getparthenon.com
-* Slack: [Click here](https://join.slack.com/t/parthenonsupport/shared_invite/zt-1kmmuvul0-Ai1Sp6j3SzlF955Z~CD~~Q) to signup
-
-Issues we wil
 
 ## FAQ
 
