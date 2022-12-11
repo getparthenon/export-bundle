@@ -90,3 +90,8 @@ parthenon:
   notification:
     type: symfony
 ```
+## FAQ
+
+### Is this Open Source?
+
+Yes. This bundle has been released under the GPL V3 License.
