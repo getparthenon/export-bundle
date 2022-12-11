@@ -12,7 +12,7 @@ A utlity Symfony bundle to help with export data from Symfony applications.
 
 It allows exports by default in the formats `csv` and `xlsx`. With the ability to add support for more formats via custom Exporters.
 
-This bundle allows you to export data via 3 methods:
+This bundle allows you to export data via 3 methods: Direct Download, Background Download, Background Email. More info [here](#export-engines)
 
 ## Getting Started
 
@@ -47,6 +47,12 @@ class ExportController
 }
 ```
 
+## Documentation
+
+You can find the full documentation in [Parthenon Docs for Export](https://getparthenon.com/docs/next/export/overview)
+
+## Export Engines
+
 ### Direct Download 
 
 This is where the export is generated within the HTTP request and a download file is provided.
@@ -55,15 +61,7 @@ This is where the export is generated within the HTTP request and a download fil
 
 This is where the export is generated within the background via Symfony Messenger and once the download is generated it's saved to a storage area and then the user can download it.
 
-### Background Email
-
-This is where the export is generated within the background via Symfony Messenger. Once the export is generated it's emailed to the requesting user.
-
-## Configuration Options
-
-When doing exports using background processinging you need to configure a few things.
-
-### Background Download
+#### Configuration
 
 The file uploading part of the background download engine is handled by the common module of Parthenon. The full documentation can be found [here](https://getparthenon.com/docs/next/common/upload/).
 
@@ -79,8 +77,9 @@ parthenon:
         local:  
           path: "%kernel.project_dir%/public/uploads"
 ```
-
 ### Background Email
+
+This is where the export is generated within the background via Symfony Messenger. Once the export is generated it's emailed to the requesting user.
 
 The email sending part of this engine is handled by the Notification module of Parthenon. The full documentation can be found at [here](https://getparthenon.com/docs/next/notification/email)
 
