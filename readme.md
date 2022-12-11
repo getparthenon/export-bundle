@@ -90,8 +90,38 @@ parthenon:
   notification:
     type: symfony
 ```
+
+## Support
+
+Support is provided via GitHub, Slack, and Email.
+
+If you have a commercial license you will be able to list the GitHub accounts that you want to link to the license. This
+means when an issue is created by an account linked to a commercial license they will get priority support. All other
+issues will be given best effort support.
+
+* Github: You can make an issue on [getparthenon/monorepo](https://github.com/getparthenon/monorepo/issues/new/choose)
+* Email: support@getparthenon.com
+* Slack: [Click here](https://join.slack.com/t/parthenonsupport/shared_invite/zt-1kmmuvul0-Ai1Sp6j3SzlF955Z~CD~~Q) to signup
+
+Issues we wil
+
 ## FAQ
 
 ### Is this Open Source?
 
 Yes. This bundle has been released under the GPL V3 License.
+
+### Why is this Open Source while Parthenon is source available?
+
+This has been released under an open source license for two reasons. One is that data exports is a source of technical debt for many tech teams and I wanted this to be useful to as many people as possible as I feel it really helps solve the issue for many teams.
+
+The other reason is to see the usage and bug reports, etc from an open source version.
+
+### If this is released under GPL and Parthenon contains this code, shouldn't Parthenon legally be GPL?
+
+No. As the copyright holder the GPL license doesn't apply to me and I'm legally entitled to distribute it how I want, relicense it, etc. GPL only affects people who fork this bundle.
+
+### What support is available for this bundle?
+
+This bundle comes with community level support, which is best efforts. You can get a professional support by paying for a Parthenon license. Which is $250 per developer per year.
+
