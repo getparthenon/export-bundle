@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <h1 style="text-align: center">Export Bundle</h1>
+  <span style="text-align: center; font-weight: bold; font-size: 200%; ">Export Bundle</span>
 </p>
 
 ## Description
