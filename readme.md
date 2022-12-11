@@ -50,6 +50,8 @@ use Parthenon\Export\Engine\EngineInterface;
 use Parthenon\Export\Exporter\ExporterManagerInterface;
 use Parthenon\Export\Exporter\ExporterManagerInterface;
 use Parthenon\Export\Response\ResponseConverterInterface;
+use Parthenon\Export\Entity\BackgroundExportRequest;
+use Parthenon\Export\Repository\BackgroundExportRequestRepositoryInterface;
 
 class ExportController
 {
@@ -63,6 +65,22 @@ class ExportController
         $response = $engine->process($exportRequest);
 
         return $responseConverter->convert($response);
+    }
+    
+    public function downloadWaiting(Request $request, LoggerInterface $logger, BackgroundExportRequestRepositoryInterface $backgroundExportRequestRepository, Environment $twig)
+    {
+        $id = $request->get('id');
+
+        /** @var BackgroundExportRequest $backgroundExportRequest */
+        $backgroundExportRequest = $backgroundExportRequestRepository->findById($id);
+
+        $downloadUrl = $backgroundExportRequest->getExportedFilePath();
+
+        if ($downloadUrl) {
+            return new RedirectResponse($downloadUrl);
+        } else {
+            return new Response($twig->render('export_background_download.html.twig'));
+        }
     }
 }
 ```
