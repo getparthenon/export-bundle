@@ -22,7 +22,7 @@ To add to your project
 
 ## Requirements
 
-* PHP 8+
+* PHP 8.1+
 * Symfony 6+
 
 ## Support
