@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <span style="text-align: center; font-weight: bold; font-size: 200%; ">Export Bundle</span>
+  <h1>Export Bundle</h1>
 </p>
 
 ## Description
@@ -19,6 +19,11 @@ This bundle allows you to export data via 3 methods: Direct Download, Background
 To add to your project
 
 `composer require parthenon/export-bundle`
+
+## Requirements
+
+* PHP 8+
+* Symfony 6+
 
 ## Support
 
