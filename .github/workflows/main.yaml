@@ -14,37 +14,9 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['8.0', '8.1', '8.2']
+        php-versions: ['8.1', '8.2']
         composer-flags: ['', '--prefer-lowest']
         experimental: [false]
-
-
-    services:
-      mongo:
-        image: mongo
-        env:
-          MONGO_INITDB_DATABASE: easio_test
-          MONGO_INITDB_ROOT_USERNAME: appuser
-          MONGO_INITDB_ROOT_PASSWORD: apppassword
-      postgres:
-        image: postgres:13.3-alpine3.14
-        ports:
-          - 5432:5432
-        env:
-          POSTGRES_DB: 'parthenon_test'
-          POSTGRES_USER: 'appuser'
-          POSTGRES_PASSWORD: 'apppassword'
-
-      timescale:
-        image: timescale/timescaledb:latest-pg12
-        ports:
-          - 5433:5432
-        env:
-          POSTGRES_DB: 'parthenon_test'
-          POSTGRES_USER: 'appuser'
-          POSTGRES_PASSWORD: 'apppassword'
-      redis:
-        image: redis
 
     steps:
       - name: Checkout
