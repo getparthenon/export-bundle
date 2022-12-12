@@ -50,7 +50,7 @@ Issues we will provide support and fixes for:
 ```php
 namespace App\Controller;
 
-use Parthenon\Athena\Export\DefaultDataProvider;
+use App\Export\DemoDataProvider;
 use Parthenon\Export\Engine\EngineInterface;
 use Parthenon\Export\Exporter\ExporterManagerInterface;
 use Parthenon\Export\Exporter\ExporterManagerInterface;
@@ -65,7 +65,7 @@ class ExportController
         $exportName = $request->get("name");
         $exportFormat = $request->get("format");
 
-        $exportRequest = new ExportRequest($exportName, $exportFormat, DefaultDataProvider::class, $parameters);
+        $exportRequest = new ExportRequest($exportName, $exportFormat, DemoDataProvider::class, $parameters);
 
         $response = $engine->process($exportRequest);
 
@@ -86,6 +86,29 @@ class ExportController
         } else {
             return new Response($twig->render('export_background_download.html.twig'));
         }
+    }
+}
+```
+
+### Data Provider
+
+```php
+<?php
+
+namespace App\Export;
+
+use Parthenon\Export\DataProvider\DataProviderInterface;
+
+class DemoDataProvider extends DataProviderInterface 
+{
+    public function __construct(
+        private DemoDataRepositoryInterface $repository,
+    ) {
+    }
+
+    public function getData(ExportRequest $exportRequest): iterable
+    {
+        return $this->repository->findAll();
     }
 }
 ```
