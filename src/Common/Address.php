@@ -22,28 +22,36 @@ declare(strict_types=1);
 namespace Parthenon\Common;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 #[ORM\Embeddable]
 class Address
 {
+    #[SerializedName('company_name')]
     #[ORM\Column(nullable: true)]
     private ?string $companyName = '';
 
+    #[SerializedName('street_line_one')]
     #[ORM\Column(nullable: true)]
     private ?string $streetLineOne = '';
 
+    #[SerializedName('street_line_two')]
     #[ORM\Column(nullable: true)]
     private ?string $streetLineTwo = '';
 
+    #[SerializedName('city')]
     #[ORM\Column(nullable: true)]
     private ?string $city = '';
 
+    #[SerializedName('region')]
     #[ORM\Column(nullable: true)]
     private ?string $region = '';
 
+    #[SerializedName('country')]
     #[ORM\Column(nullable: true)]
     private ?string $country = '';
 
+    #[SerializedName('post_code')]
     #[ORM\Column(nullable: true)]
     private ?string $postcode = '';
 
@@ -52,7 +60,7 @@ class Address
         return $this->companyName;
     }
 
-    public function setCompanyName(string $companyName): void
+    public function setCompanyName(?string $companyName): void
     {
         $this->companyName = $companyName;
     }
@@ -62,7 +70,7 @@ class Address
         return $this->streetLineOne;
     }
 
-    public function setStreetLineOne(string $streetLineOne): void
+    public function setStreetLineOne(?string $streetLineOne): void
     {
         $this->streetLineOne = $streetLineOne;
     }
@@ -72,7 +80,7 @@ class Address
         return $this->streetLineTwo;
     }
 
-    public function setStreetLineTwo(string $streetLineTwo): void
+    public function setStreetLineTwo(?string $streetLineTwo): void
     {
         $this->streetLineTwo = $streetLineTwo;
     }
@@ -82,7 +90,7 @@ class Address
         return $this->city;
     }
 
-    public function setCity(string $city): void
+    public function setCity(?string $city): void
     {
         $this->city = $city;
     }
@@ -92,7 +100,7 @@ class Address
         return $this->region;
     }
 
-    public function setRegion(string $region): void
+    public function setRegion(?string $region): void
     {
         $this->region = $region;
     }
@@ -106,7 +114,7 @@ class Address
         return $this->country;
     }
 
-    public function setCountry(string $country): void
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
@@ -116,7 +124,7 @@ class Address
         return $this->postcode;
     }
 
-    public function setPostcode(string $postcode): void
+    public function setPostcode(?string $postcode): void
     {
         $this->postcode = $postcode;
     }
