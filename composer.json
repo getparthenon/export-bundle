@@ -63,5 +63,10 @@
         "chadhutchins/oauth2-slack": "^1.2.2",
         "nyholm/psr7": "^1.5",
         "symfony/twig-bridge": "^6.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
