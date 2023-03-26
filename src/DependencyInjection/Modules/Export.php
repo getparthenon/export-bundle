@@ -58,8 +58,6 @@ class Export implements ModuleConfigurationInterface
             return;
         }
 
-        $container->setParameter('parthenon_export_enabled', true);
-
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../../Resources/config'));
         $loader->load('services/export.xml');
 
