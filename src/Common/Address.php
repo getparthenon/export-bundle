@@ -22,90 +22,98 @@ declare(strict_types=1);
 namespace Parthenon\Common;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\SerializedName;
 
-#[ORM\Embeddable]
+/**
+ * @ORM\Embeddable
+ */
 class Address
 {
-    #[SerializedName('company_name')]
-    #[ORM\Column(nullable: true)]
-    private ?string $companyName = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $companyName = '';
 
-    #[SerializedName('street_line_one')]
-    #[ORM\Column(nullable: true)]
-    private ?string $streetLineOne = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $streetLineOne = '';
 
-    #[SerializedName('street_line_two')]
-    #[ORM\Column(nullable: true)]
-    private ?string $streetLineTwo = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $streetLineTwo = '';
 
-    #[SerializedName('city')]
-    #[ORM\Column(nullable: true)]
-    private ?string $city = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $city = '';
 
-    #[SerializedName('region')]
-    #[ORM\Column(nullable: true)]
-    private ?string $region = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $region = '';
 
-    #[SerializedName('country')]
-    #[ORM\Column(nullable: true)]
-    private ?string $country = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $country = '';
 
-    #[SerializedName('post_code')]
-    #[ORM\Column(nullable: true)]
-    private ?string $postcode = '';
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    private string $postcode = '';
 
-    public function getCompanyName(): ?string
+    public function getCompanyName(): string
     {
         return $this->companyName;
     }
 
-    public function setCompanyName(?string $companyName): void
+    public function setCompanyName(string $companyName): void
     {
         $this->companyName = $companyName;
     }
 
-    public function getStreetLineOne(): ?string
+    public function getStreetLineOne(): string
     {
         return $this->streetLineOne;
     }
 
-    public function setStreetLineOne(?string $streetLineOne): void
+    public function setStreetLineOne(string $streetLineOne): void
     {
         $this->streetLineOne = $streetLineOne;
     }
 
-    public function getStreetLineTwo(): ?string
+    public function getStreetLineTwo(): string
     {
         return $this->streetLineTwo;
     }
 
-    public function setStreetLineTwo(?string $streetLineTwo): void
+    public function setStreetLineTwo(string $streetLineTwo): void
     {
         $this->streetLineTwo = $streetLineTwo;
     }
 
-    public function getCity(): ?string
+    public function getCity(): string
     {
         return $this->city;
     }
 
-    public function setCity(?string $city): void
+    public function setCity(string $city): void
     {
         $this->city = $city;
     }
 
-    public function getRegion(): ?string
+    public function getRegion(): string
     {
         return $this->region;
     }
 
-    public function setRegion(?string $region): void
+    public function setRegion(string $region): void
     {
         $this->region = $region;
     }
 
-    public function getCountry(): ?string
+    public function getCountry(): string
     {
         if (!isset($this->country)) {
             return '';
@@ -114,17 +122,17 @@ class Address
         return $this->country;
     }
 
-    public function setCountry(?string $country): void
+    public function setCountry(string $country): void
     {
         $this->country = $country;
     }
 
-    public function getPostcode(): ?string
+    public function getPostcode(): string
     {
         return $this->postcode;
     }
 
-    public function setPostcode(?string $postcode): void
+    public function setPostcode(string $postcode): void
     {
         $this->postcode = $postcode;
     }

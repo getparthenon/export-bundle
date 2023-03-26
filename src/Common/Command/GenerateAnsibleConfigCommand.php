@@ -30,6 +30,8 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class GenerateAnsibleConfigCommand extends Command
 {
+    protected static $defaultName = 'parthenon:common:generate-ansible-config';
+
     public function __construct(private KernelInterface $kernel)
     {
         parent::__construct(null);
@@ -48,6 +50,12 @@ class GenerateAnsibleConfigCommand extends Command
         file_put_contents($fileDir.'/deploy.pub', $rsa->getPublicKey()->toString('OpenSSH'));
         $privateKey = $rsa->toString('OpenSSH');
         file_put_contents($fileDir.'/deploy.pem', $privateKey);
+    }
+
+    protected function configure()
+    {
+        $this->setName(static::$defaultName)
+            ->setDescription('Command to help you generate your ansible config');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
