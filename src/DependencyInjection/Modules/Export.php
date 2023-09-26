@@ -42,8 +42,8 @@ class Export implements ModuleConfigurationInterface
             ->arrayNode('export')
                 ->children()
                     ->booleanNode('enabled')->defaultFalse()->end()
-                    ->booleanNode('default_engine')->end()
-                    ->booleanNode('user_provider')->end()
+                    ->scalarNode('default_engine')->end()
+                    ->scalarNode('user_provider')->end()
                 ->end()
             ->end();
     }
