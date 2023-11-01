@@ -35,7 +35,7 @@ final class MpdfGenerator implements GeneratorInterface
         try {
             $this->mpdf->WriteHTML($html);
 
-            return $this->mpdf->Output();
+            return $this->mpdf->OutputBinaryData();
         } catch (\Exception $e) {
             throw new GeneralException($e->getMessage(), $e->getCode(), $e);
         }
