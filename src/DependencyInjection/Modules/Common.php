@@ -22,7 +22,6 @@ declare(strict_types=1);
 namespace Parthenon\DependencyInjection\Modules;
 
 use DocRaptor\Doc;
-use Monolog\Logger;
 use Mpdf\Mpdf;
 use Parthenon\Common\Exception\MissingDependencyException;
 use Parthenon\Common\Exception\ParameterNotSetException;
@@ -93,10 +92,6 @@ final class Common implements ModuleConfigurationInterface
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../../Resources/config'));
         $loader->load('services/common.xml');
-
-        if (Logger::API === 2) {
-            $loader->load('services/monolog_v2.xml');
-        }
 
         if (!isset($config['common'])) {
             return;
