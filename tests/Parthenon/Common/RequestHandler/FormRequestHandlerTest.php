@@ -31,7 +31,7 @@ class FormRequestHandlerTest extends TestCase
     public function testSupportsNonuserRoute()
     {
         $request = $this->createMock(Request::class);
-        $request->method('getContentType')->willReturn('form');
+        $request->method('getContentTypeFormat')->willReturn('form');
         $request->method('get')->willReturn('parthenon_user_view');
 
         $requestHandler = new FormRequestHandler();
@@ -41,7 +41,7 @@ class FormRequestHandlerTest extends TestCase
     public function testDoesNotSupportsNonuserRoute()
     {
         $request = $this->createMock(Request::class);
-        $request->method('getContentType')->willReturn('form');
+        $request->method('getContentTypeFormat')->willReturn('form');
         $request->method('get')->willReturn('parthenon_user_signup');
 
         $requestHandler = new FormRequestHandler();

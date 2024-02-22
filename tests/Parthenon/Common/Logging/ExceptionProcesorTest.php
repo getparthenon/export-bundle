@@ -21,6 +21,8 @@ declare(strict_types=1);
 
 namespace Parthenon\Common\Logging;
 
+use Monolog\Level;
+use Monolog\LogRecord;
 use Parthenon\Common\Logging\Monolog\ExceptionProcessor;
 use PHPUnit\Framework\TestCase;
 
@@ -31,7 +33,12 @@ class ExceptionProcesorTest extends TestCase
         $processor = new ExceptionProcessor();
 
         $exception = new \Exception('message');
-        $record = ['extra' => ['exception' => $exception], 'context' => []];
+        $record = new LogRecord(
+            new \DateTimeImmutable(),
+            'channel',
+            Level::Info,
+            'message',
+            extra: ['exception' => $exception]);
 
         $output = $processor->__invoke($record);
 
@@ -44,8 +51,13 @@ class ExceptionProcesorTest extends TestCase
         $processor = new ExceptionProcessor();
 
         $exception = new \Exception('message');
-        $record = ['context' => ['exception' => $exception]];
 
+        $record = new LogRecord(
+            new \DateTimeImmutable(),
+            'channel',
+            Level::Info,
+            'message',
+            context: ['exception' => $exception]);
         $output = $processor->__invoke($record);
 
         $this->assertArrayHasKey('message', $output['context']['exception']);
@@ -57,8 +69,12 @@ class ExceptionProcesorTest extends TestCase
         $processor = new ExceptionProcessor();
 
         $exception = new \Exception('message');
-        $record = ['context' => ['deep' => ['exception' => $exception]]];
-
+        $record = new LogRecord(
+            new \DateTimeImmutable(),
+            'channel',
+            Level::Info,
+            'message',
+            context: ['deep' => ['exception' => $exception]]);
         $output = $processor->__invoke($record);
 
         $this->assertArrayHasKey('message', $output['context']['deep']['exception']);

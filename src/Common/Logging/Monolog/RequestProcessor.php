@@ -21,6 +21,7 @@ declare(strict_types=1);
 
 namespace Parthenon\Common\Logging\Monolog;
 
+use Monolog\LogRecord;
 use Monolog\Processor\ProcessorInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -33,7 +34,7 @@ final class RequestProcessor implements ProcessorInterface
         $this->requestStack = $requestStack;
     }
 
-    public function __invoke(array $record): array
+    public function __invoke(LogRecord $record): LogRecord
     {
         $request = $this->requestStack->getMainRequest();
 

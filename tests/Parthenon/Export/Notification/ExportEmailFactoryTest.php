@@ -37,7 +37,7 @@ class ExportEmailFactoryTest extends TestCase
                 return [];
             }
 
-            public function eraseCredentials()
+            public function eraseCredentials(): void
             {
                 // TODO: Implement eraseCredentials() method.
             }

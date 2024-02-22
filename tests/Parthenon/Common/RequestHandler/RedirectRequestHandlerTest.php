@@ -34,7 +34,7 @@ class RedirectRequestHandlerTest extends TestCase
     {
         $urlGenerator = $this->createMock(UrlGeneratorInterface::class);
         $request = $this->createMock(Request::class);
-        $request->method('getContentType')->willReturn('form');
+        $request->method('getContentTypeFormat')->willReturn('form');
         $request->method('get')->willReturn('parthenon_user_signup');
 
         $requestHandler = new RedirectRequestHandler($urlGenerator, 'path', 'parthenon_user_signup');
@@ -45,7 +45,7 @@ class RedirectRequestHandlerTest extends TestCase
     {
         $urlGenerator = $this->createMock(UrlGeneratorInterface::class);
         $request = $this->createMock(Request::class);
-        $request->method('getContentType')->willReturn('form');
+        $request->method('getContentTypeFormat')->willReturn('form');
         $request->method('get')->willReturn('parthenon_user_view');
 
         $requestHandler = new RedirectRequestHandler($urlGenerator, 'path', 'parthenon_user_signup');

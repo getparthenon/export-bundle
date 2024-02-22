@@ -37,7 +37,7 @@ class DisableCrsfExtension extends AbstractTypeExtension
         return [FormType::class];
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $request = $this->requestStack->getCurrentRequest();
         if ('json' === $request->getContentType()) {

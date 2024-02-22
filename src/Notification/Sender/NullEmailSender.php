@@ -26,9 +26,6 @@ use Parthenon\Notification\EmailSenderInterface;
 
 final class NullEmailSender implements EmailSenderInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function send(EmailInterface $message)
     {
     }
