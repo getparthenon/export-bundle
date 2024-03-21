@@ -41,8 +41,8 @@ class CsvExporterTest extends TestCase
                     ',value_four,value_three'.PHP_EOL;
 
         $rows = [
-          ['column_one' => 'value', 'column_two' => 'value_two'],
-          ['column_three' => 'value_three', 'column_two' => 'value_four'],
+            ['column_one' => 'value', 'column_two' => 'value_two'],
+            ['column_three' => 'value_three', 'column_two' => 'value_four'],
         ];
 
         $this->assertEquals($expected, $exporter->getOutput($rows));

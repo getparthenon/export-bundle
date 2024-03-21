@@ -71,19 +71,19 @@ class QueryBuilderTest extends TestCase
                 ->query('match', 'secondField', 'secondValue')
                 ->build();
         $this->assertEquals([
-        'query' => [
-        'bool' => [
-            'must' => [
-                [
-                    'match' => ['fieldName' => 'fieldValue'],
-                ],
-                [
-                    'match' => ['secondField' => 'secondValue'],
+            'query' => [
+                'bool' => [
+                    'must' => [
+                        [
+                            'match' => ['fieldName' => 'fieldValue'],
+                        ],
+                        [
+                            'match' => ['secondField' => 'secondValue'],
+                        ],
+                    ],
                 ],
             ],
-        ],
-    ],
-            ], $output);
+        ], $output);
     }
 
     public function testDealsWithTwoQueriesAndTwoNotQueries()

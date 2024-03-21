@@ -100,11 +100,11 @@ final class QueryBuilder
             $query = current($this->queries);
 
             return $this->addAggregation([
-              'query' => [
-                  $query['queryType'] => [
-                      $query['fieldName'] => $query['fieldValue'],
-                  ],
-              ],
+                'query' => [
+                    $query['queryType'] => [
+                        $query['fieldName'] => $query['fieldValue'],
+                    ],
+                ],
             ]);
         }
 
@@ -134,10 +134,10 @@ final class QueryBuilder
                     $output['bool'][$qualifierType] = [];
                 }
                 $output['bool'][$qualifierType][] = [
-                   $query['queryType'] => [
-                       $query['fieldName'] => $query['fieldValue'],
-                   ],
-               ];
+                    $query['queryType'] => [
+                        $query['fieldName'] => $query['fieldValue'],
+                    ],
+                ];
             }
         }
 
